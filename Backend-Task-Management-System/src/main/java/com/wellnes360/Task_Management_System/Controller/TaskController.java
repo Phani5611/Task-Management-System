@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin()
 @RestController
 public class TaskController {
 
@@ -24,7 +24,7 @@ public class TaskController {
       if(allTasks.isEmpty()){
           return ResponseEntity.status(HttpStatus.NOT_FOUND).body(allTasks);
       }
-      return ResponseEntity.status(HttpStatus.OK).body(allTasks);
+      return new ResponseEntity<>(allTasks,HttpStatus.OK);
     }
 
     // Fetch TASK By ID Mapper

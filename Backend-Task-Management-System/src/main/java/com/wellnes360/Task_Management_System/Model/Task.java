@@ -74,7 +74,7 @@ public class Task {
         this.due_date = due_date;
     }
 
-    public Status getStatus(Optional<Task> byId) {
+    public Status getStatus() {
         return status;
     }
 
