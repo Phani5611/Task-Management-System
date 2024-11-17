@@ -71,7 +71,7 @@ public class TaskController {
        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    //TASK Status Mapper
+    //TASK Status Mapper -> { 0-Pending , 1-In_Progress , 2-Completed }
     @PatchMapping("/tasks/{taskId}")
     public  ResponseEntity<Void> markTask(@PathVariable long taskId){
        boolean responseStatus =  service.markTask(taskId);
