@@ -36,14 +36,14 @@ public class TaskController {
 
     // TASK Creation Mapper
     @PostMapping("/tasks")
-    public ResponseEntity<Void> createTask(@RequestBody Task createTask){
+    public ResponseEntity<String> createTask(@RequestBody Task createTask){
           boolean response = service.createTask(createTask);
           if(response){
               System.out.println("Creation Susccessfully - Msg from controller");
-              return ResponseEntity.status(HttpStatus.CREATED).build();
+              return new ResponseEntity<>("Task Created",HttpStatus.CREATED);
           }
           System.out.println(" Unsuccessful - From Controller");
-          return  ResponseEntity.status(HttpStatus.ALREADY_REPORTED).build();
+          return  new ResponseEntity<>("Task Already Exists",HttpStatus.ALREADY_REPORTED);
     }
 
 
@@ -53,34 +53,34 @@ public class TaskController {
        boolean response=service.updateTask(taskId,updateTask);
        if(response){
            System.out.println("Updated Successfully - From Controller");
-           return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+           return new ResponseEntity<>("Task Updated",HttpStatus.OK);
        }
         System.out.println("Not Updated - From Controller");
-       return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+       return new ResponseEntity<>("Task Not Updated / Not Exists",HttpStatus.NOT_FOUND);
     }
 
     // TASK Delete Mapper
     @DeleteMapping("/tasks/{taskId}")
-    public ResponseEntity<Void> deleteTask(@PathVariable long taskId){
+    public ResponseEntity<String> deleteTask(@PathVariable long taskId){
        boolean response =  service.deleteTask(taskId);
        if(!response){
            System.out.println("TASK NOT EXIST - Controller");
-           return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+           return new ResponseEntity<>("Task doesn't Exists",HttpStatus.NOT_FOUND);
        }
         System.out.println("TASK DELETED - Controller");
-       return ResponseEntity.status(HttpStatus.OK).build();
+        return new ResponseEntity<>("Task Deleted",HttpStatus.OK);
     }
 
     //TASK Status Mapper -> { 0-Pending , 1-In_Progress , 2-Completed }
     @PatchMapping("/tasks/{taskId}")
-    public  ResponseEntity<Void> markTask(@PathVariable long taskId){
+    public  ResponseEntity<String> markTask(@PathVariable long taskId){
        boolean responseStatus =  service.markTask(taskId);
         if(!responseStatus){
             System.out.println("TASK NOT EXIST - Controller");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return new ResponseEntity<>("Task doesn't Exists",HttpStatus.NOT_FOUND);
         }
         System.out.println("TASK MARKED - Controller");
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return new ResponseEntity<>("Task Marked",HttpStatus.OK);
     }
 
 }

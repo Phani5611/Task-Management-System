@@ -58,11 +58,11 @@ public class TaskService {
                return true;
             }
             else{
-                throw new RuntimeException("TASK ID -"+ updateTask.getTaskId()+"NOT EXIST");
+                throw new RuntimeException("TASK ID - "+ updateTask.getTaskId()+" NOT EXIST");
             }
         }
         catch (Exception e){
-            System.out.println("Error -"+e.getMessage());
+            System.out.println("Error -"+e.getMessage()+" - From Service");
         }
         return false;
     }

@@ -14,8 +14,8 @@ import java.util.Optional;
 public class Task {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long taskId;
+
     private String title;
     private String description;
     private LocalDate due_date;
