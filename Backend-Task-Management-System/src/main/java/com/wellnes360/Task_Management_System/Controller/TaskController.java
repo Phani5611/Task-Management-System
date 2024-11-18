@@ -2,10 +2,12 @@ package com.wellnes360.Task_Management_System.Controller;
 
 import com.wellnes360.Task_Management_System.Model.Task;
 import com.wellnes360.Task_Management_System.Service.TaskService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class TaskController {
     @Autowired
     private TaskService service;
 
+
     // Fetch All TASK  Mapper
     @GetMapping("/tasks")
     public ResponseEntity<List<Task>> getAllTasks(){
@@ -26,6 +29,9 @@ public class TaskController {
       }
       return new ResponseEntity<>(allTasks,HttpStatus.OK);
     }
+
+
+
 
     // Fetch TASK By ID Mapper
     @GetMapping("/tasks/{taskId}")
@@ -43,7 +49,7 @@ public class TaskController {
               return new ResponseEntity<>("Task Created",HttpStatus.CREATED);
           }
           System.out.println(" Unsuccessful - From Controller");
-          return  new ResponseEntity<>("Task Already Exists",HttpStatus.ALREADY_REPORTED);
+          return  new ResponseEntity<>("Task Already Exists",HttpStatus.CONFLICT);
     }
 
 
@@ -59,6 +65,7 @@ public class TaskController {
        return new ResponseEntity<>("Task Not Updated / Not Exists",HttpStatus.NOT_FOUND);
     }
 
+
     // TASK Delete Mapper
     @DeleteMapping("/tasks/{taskId}")
     public ResponseEntity<String> deleteTask(@PathVariable long taskId){
@@ -70,6 +77,7 @@ public class TaskController {
         System.out.println("TASK DELETED - Controller");
         return new ResponseEntity<>("Task Deleted",HttpStatus.OK);
     }
+
 
     //TASK Status Mapper -> { 0-Pending , 1-In_Progress , 2-Completed }
     @PatchMapping("/tasks/{taskId}")
