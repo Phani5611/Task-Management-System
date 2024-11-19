@@ -84,13 +84,13 @@
 ## Project Structure Overview
 
 ### Backend-Task-Management-System
-- **.idea**: IDE settings for IntelliJ IDEA.
-- **.mvn**: Maven wrapper files, enabling Maven to run without requiring Maven installation on the system.
-- **src/main**: The main application source code:
-    - **java**: Contains Java code for business logic and controllers.
-    - **resources**: Stores static resources (e.g., images, CSS, templates).
-- **target**: Contains the compiled classes, generated sources, and build artifacts (like `.jar` or `.war` files).
-- **test**: Unit and integration tests for the application.
+ - Controller -  Handles all HTTP request from client.
+ - Service - All the logic is written here.
+ - DAO - Database layer to coonect with DB.
+ - Model - Contains views / entities of the project.
+ - TaskValidation - Validation of inputs
+ - Exceptions - Contains all custom exceptions.
+ - Config - Security & Cors configuration are present in this package.
 
 
 
