@@ -168,14 +168,14 @@
 
 **Some test cases are given below for tesing HTTP requests**
 
-| HTTP Request | API End Point         | Description                                                   |
-|--------------|-----------------------|---------------------------------------------------------------|
-| `GET`       | /tasks/taskId         | Give Task Data of specific ID                                 |
-| `GET`         | /tasks                | Gives all the tasks present in DB                                                |
-| `POST`      | /tasks                | Creates a task.                                         |
-| `PUT`         | /tasks/taskId         | Updating a particular with Task ID.                                |
-| `DELETE`         | /tasks/taskId         |Delete a specific task using Task ID. |
-| `PATCH`          | /tasks/taskId |  Marking the status of the task as COMPLETED.                          |
+| HTTP Request | API End Point         | Description                                  |
+|--------------|-----------------------|----------------------------------------------|
+| `GET`       | /tasks/taskId         | Gives Task Data of specific ID               |
+| `GET`         | /tasks                | Gives all the tasks present in DB            |
+| `POST`      | /tasks                | Creates a task.                              |
+| `PUT`         | /tasks/taskId         | Updating a particular task with Task ID.     |
+| `DELETE`         | /tasks/taskId         | Delete a specific task using Task ID.        |
+| `PATCH`          | /tasks/taskId | Marking the status of the task as COMPLETED. |
 
 
 
@@ -192,6 +192,7 @@
 
 
 ## JSON data as test cases
+```
 - Task 1
 
 {
@@ -229,7 +230,7 @@
 "updatedAt": "2024-11-15T16:00:00"
 }
 
-
+```
 
 ## Future Scope of Improvements
 
@@ -239,6 +240,7 @@
 - Store the data in permanent DB like Postgres.
 
 - Integrate front-end and back-end.
+
 
 ## Contact
 - Email - phanisaisrinivasmadiraju@gmail.com
