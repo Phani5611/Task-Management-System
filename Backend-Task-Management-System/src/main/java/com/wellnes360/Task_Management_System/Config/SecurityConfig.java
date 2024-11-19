@@ -1,5 +1,6 @@
 package com.wellnes360.Task_Management_System.Config;
 
+import com.wellnes360.Task_Management_System.Exceptions.InputFieldException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -16,19 +17,20 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
          http.csrf(customizer-> customizer.disable());
+
          //Enables the H2 DB Console
          http.headers().frameOptions().disable();
+
          http.authorizeHttpRequests(request->request.anyRequest().authenticated());
 
-         //Enabling Basic Form on web Page
+        //Enabling Basic Form for REST API - Postman else return HTML Page
         http.httpBasic(Customizer.withDefaults());
 
-        //Enabling Basic Form for REST API - Postman else return HTML Page
-        http.formLogin(Customizer.withDefaults());
 
         http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         //Return Object of SecurityFilterChain
         return http.build();
     }
+
 }

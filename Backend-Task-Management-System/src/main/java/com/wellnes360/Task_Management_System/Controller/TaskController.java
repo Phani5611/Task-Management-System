@@ -1,5 +1,6 @@
 package com.wellnes360.Task_Management_System.Controller;
 
+import com.wellnes360.Task_Management_System.Model.ApiResponse;
 import com.wellnes360.Task_Management_System.Model.Task;
 import com.wellnes360.Task_Management_System.Service.TaskService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,8 +32,6 @@ public class TaskController {
     }
 
 
-
-
     // Fetch TASK By ID Mapper
     @GetMapping("/tasks/{taskId}")
     public Optional<Task> getTask(@PathVariable long taskId){
@@ -42,53 +41,43 @@ public class TaskController {
 
     // TASK Creation Mapper
     @PostMapping("/tasks")
-    public ResponseEntity<String> createTask(@RequestBody Task createTask){
-          boolean response = service.createTask(createTask);
-          if(response){
-              System.out.println("Creation Susccessfully - Msg from controller");
-              return new ResponseEntity<>("Task Created",HttpStatus.CREATED);
-          }
-          System.out.println(" Unsuccessful - From Controller");
-          return  new ResponseEntity<>("Task Already Exists",HttpStatus.CONFLICT);
+    public ResponseEntity<ApiResponse> createTask(@RequestBody (required = false) Task createTask){
+        //Checking if Request Body is null
+        if(createTask==null){
+            ApiResponse errorResponse = new ApiResponse(400,"No JSON Input");
+            return new ResponseEntity<>(errorResponse,HttpStatus.valueOf(errorResponse.getStatusCode()));
+        }
+        ApiResponse responseCreation = service.createTask(createTask);
+        return  new ResponseEntity<>(responseCreation,HttpStatus.valueOf(responseCreation.getStatusCode()));
     }
 
 
     // TASK Update Mapper
     @PutMapping("/tasks/{taskId}")
-    public ResponseEntity<String> updateTask(@PathVariable long taskId, @RequestBody Task updateTask ){
-       boolean response=service.updateTask(taskId,updateTask);
-       if(response){
-           System.out.println("Updated Successfully - From Controller");
-           return new ResponseEntity<>("Task Updated",HttpStatus.OK);
-       }
-        System.out.println("Not Updated - From Controller");
-       return new ResponseEntity<>("Task Not Updated / Not Exists",HttpStatus.NOT_FOUND);
+    public ResponseEntity<ApiResponse> updateTask(@PathVariable long taskId, @RequestBody( required = false) Task updateTask ){
+        //Checking if Request Body is null
+        if(updateTask==null){
+            ApiResponse errorResponse = new ApiResponse(400,"No JSON Input");
+            return new ResponseEntity<>(errorResponse,HttpStatus.valueOf(errorResponse.getStatusCode()));
+        }
+       ApiResponse responseUpdate = service.updateTask(taskId,updateTask);
+       return  new ResponseEntity<>(responseUpdate,HttpStatus.valueOf(responseUpdate.getStatusCode()));
     }
 
 
     // TASK Delete Mapper
     @DeleteMapping("/tasks/{taskId}")
-    public ResponseEntity<String> deleteTask(@PathVariable long taskId){
-       boolean response =  service.deleteTask(taskId);
-       if(!response){
-           System.out.println("TASK NOT EXIST - Controller");
-           return new ResponseEntity<>("Task doesn't Exists",HttpStatus.NOT_FOUND);
-       }
-        System.out.println("TASK DELETED - Controller");
-        return new ResponseEntity<>("Task Deleted",HttpStatus.OK);
+    public ResponseEntity<ApiResponse> deleteTask(@PathVariable long taskId){
+       ApiResponse responseDelete =  service.deleteTask(taskId);
+       return  new ResponseEntity<>(responseDelete,HttpStatus.valueOf(responseDelete.getStatusCode()));
     }
 
 
     //TASK Status Mapper -> { 0-Pending , 1-In_Progress , 2-Completed }
     @PatchMapping("/tasks/{taskId}")
-    public  ResponseEntity<String> markTask(@PathVariable long taskId){
-       boolean responseStatus =  service.markTask(taskId);
-        if(!responseStatus){
-            System.out.println("TASK NOT EXIST - Controller");
-            return new ResponseEntity<>("Task doesn't Exists",HttpStatus.NOT_FOUND);
-        }
-        System.out.println("TASK MARKED - Controller");
-        return new ResponseEntity<>("Task Marked",HttpStatus.OK);
+    public  ResponseEntity<ApiResponse> markTask(@PathVariable long taskId){
+     ApiResponse responseStatus =  service.markTask(taskId);
+        return  new ResponseEntity<>(responseStatus,HttpStatus.valueOf(responseStatus.getStatusCode()));
     }
 
 }

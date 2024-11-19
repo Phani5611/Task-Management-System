@@ -1,5 +1,6 @@
 package com.wellnes360.Task_Management_System.Model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-
+// Model class for custom data type of Task
 @Entity
 public class Task {
 
@@ -28,6 +29,7 @@ public class Task {
         IN_PROGRESS,
         COMPLETED
     }
+
     public Task(){
 
     }
