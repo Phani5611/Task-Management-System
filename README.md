@@ -110,7 +110,7 @@
 
 - 409 - CONFLICT ➡ Task Already Exsist ( When same task is sent to post mapper )
 
-- 500 - INTERNAL SERVER ERROR - Unexpected error on server side
+- 500 - INTERNAL SERVER ERROR ➡ Unexpected error on server side
 ---
 
 ## JSON data as test cases
@@ -139,7 +139,7 @@
 "updatedAt": "2024-11-15T16:00:00"
 }
 
-- Task 3 ( without some fields)
+- Task 3 ( without some fields )
 
 {
 "taskId":null,
