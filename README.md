@@ -1,6 +1,6 @@
 # Task Management System
 ***Helps to keep track of all the tasks need to be done and manage them at one place.***
----
+
 ## Features
 - Authenticated users can only access the project.
 - Input validations are handled using exceptions.
