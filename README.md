@@ -10,7 +10,19 @@
 - Accepts cross-origin requests.
 
 ## Table of Contents
-
+- [Software's Need](#softwares-needed)
+- [Project Structure](#project-structure)
+- [Project Structure Overview](#project-structure-overview)
+- [Assumptions](#assumptions)
+- [Installation Guide](#steps-to-install-the-project)
+- [Dependencies](#libraries--dependencies-needed-)
+- [How to run ?](#how-to-run-the-project-)
+- [Steps to test features](#testing-the-features-of-the-project)
+- [Http requests & URL end points](#http-requests--urls)
+- [Http status code's used](#http-status-codes-used)
+- [JSON test cases](#json-data-as-test-cases)
+- [Future scope of improvements](#future-scope-of-improvements)
+- [Contact](#contact)
 
 ## Software's Needed
 
@@ -19,6 +31,12 @@
 - [Postman](https://www.postman.com/downloads/)
 
 ## Project Structure
+
+
+```plaintext
+
+
+
 ├───.idea
 ├───Backend-Task-Management-System
 │   ├───.idea
@@ -28,22 +46,22 @@
 │   │   ├───main
 │   │   │   ├───java
 │   │   │   │   └───com
-│   │   │   │       └───wellness360
+│   │   │   │       └───wellnes360
 │   │   │   │           └───Task_Management_System
-│   │   │   │               ├───Config
-│   │   │   │               ├───Controller
-│   │   │   │               ├───DAO
-│   │   │   │               ├───Exceptions
-│   │   │   │               ├───Model
-│   │   │   │               ├───Service
-│   │   │   │               └───TaskValidation
+│   │   │   │               ├───Config  -                    #Contains Cors and security files.
+│   │   │   │               ├───Controller                   #Contains task controller which handles http requests
+│   │   │   │               ├───DAO                          #Repository layer - DB Connection ( JPA )
+│   │   │   │               ├───Exceptions                   #Custom exceptions like TaskNotFoundException, TaskFoundException, InputFieldException
+│   │   │   │               ├───Model                        #Entities -  Task, Api Response.
+│   │   │   │               ├───Service                      #Business logic - TaskService
+│   │   │   │               └───TaskValidation               #Validating input tasks
 │   │   │   └───resources
 │   │   │       ├───static
 │   │   │       └───templates
 │   │   └───test
 │   │       └───java
 │   │           └───com
-│   │               └───wellness360
+│   │               └───wellnes360
 │   │                   └───Task_Management_System
 │   └───target
 │       ├───classes
@@ -62,6 +80,19 @@
 └───target
 └───generated-sources
 └───annotations
+```
+## Project Structure Overview
+
+### Backend-Task-Management-System
+- **.idea**: IDE settings for IntelliJ IDEA.
+- **.mvn**: Maven wrapper files, enabling Maven to run without requiring Maven installation on the system.
+- **src/main**: The main application source code:
+    - **java**: Contains Java code for business logic and controllers.
+    - **resources**: Stores static resources (e.g., images, CSS, templates).
+- **target**: Contains the compiled classes, generated sources, and build artifacts (like `.jar` or `.war` files).
+- **test**: Unit and integration tests for the application.
+
+
 
 
 ## Assumptions
@@ -102,11 +133,11 @@
 
 4. Now open postman client and add the login credentials which are mentioned below for `TESTING PURPOSE` only.
 
-## Login Credentials
+### Login Credentials
 - Username - wellness360
 - Password - wellness360
 
-## Login Credentials for H2 DB console
+### Login Credentials for H2 DB console
 
 **To view database redirect to -  http://localhost:8080/h2-console**
 - Username - admin 
@@ -133,34 +164,31 @@
 - ***NOTE - In database the status is shown as 0 - PENDING, 1 - IN_PROGRESS, 2 - COMPLETED. Also maintain status marking in CAPITAL LETTERS, example - IN_PROGRESS in JSON data.***
 
 
-## HTTP Requests & URL's
+## HTTP Requests & URL's End Points
 
-**Some test cases are given below for tesing HTTP requests** 
-- `GET` - localhost:8080/tasks/1 →  Give Task data of ID 1 .
+**Some test cases are given below for tesing HTTP requests**
 
-- `GET` - localhost:8080/tasks →  Gives all the tasks present in DB.
+| HTTP Request | API End Point         | Description                                                   |
+|--------------|-----------------------|---------------------------------------------------------------|
+| `GET`       | /tasks/taskId         | Give Task Data of specific ID                                 |
+| `GET`         | /tasks                | Gives all the tasks present in DB                                                |
+| `POST`      | /tasks                | Creates a task.                                         |
+| `PUT`         | /tasks/taskId         | Updating a particular with Task ID.                                |
+| `DELETE`         | /tasks/taskId         |Delete a specific task using Task ID. |
+| `PATCH`          | /tasks/taskId |  Marking the status of the task as COMPLETED.                          |
 
-- `POST` - localhost:8080/tasks → Creates a task.
 
-- `PUT` - localhost:8080/tasks/taskId → Updating a particular with Task ID.
 
-- `DELETE` - localhost:8080/tasks/taskId → Delete a specific task using Task ID.
-
-- `PATCH` - localhost:8080/tasks/taskId → Marking the status of the task as COMPLETED.
-
-## HTTP Status Codes Used
-
-- 200 - OK ➡ Success Operation for Task Deletion/ Updation/ Marked/ Fetch
-
-- 201 - CREATED ➡ Task Created
-
-- 400 - BAD REQUEST ➡ Missing Input Fields
-
-- 404 - NOT FOUND ➡ Task Not Found / Not Exsit
-
-- 409 - CONFLICT ➡ Task Already Exsist ( When same task is sent to post mapper )
-
-- 500 - INTERNAL SERVER ERROR ➡ Unexpected error on server side
+## HTTP Status Code's Used
+| Status Code     | Message | Description |
+|-----------------|---------|-------------|
+| 200    | OK      | Success Operation for Task Deletion/ Updation/ Marked/ Fetch |
+| 201 | CREATED |  Task Created |
+|400| BAD REQUEST|Missing Input Fields|
+|404|NOT FOUND| Task Not Found / Not Exsit|
+| 409 |CONFLICT|Task Already Exsist ( When same task is sent to post mapper )|
+|500|INTERNAL SERVER ERROR |Unexpected error on server side|
+ 
 
 
 ## JSON data as test cases
@@ -189,7 +217,7 @@
 "updatedAt": "2024-11-15T16:00:00"
 }
 
-- Task 3 ( without some fields )
+- Task 3 ( with some empty fields )
 
 {
 "taskId":null,
@@ -211,6 +239,11 @@
 - Store the data in permanent DB like Postgres.
 
 - Integrate front-end and back-end.
+
+## Contact
+- Email - phanisaisrinivasmadiraju@gmail.com
+- [Linkedin](https://www.linkedin.com/in/phani-sai-srinivas-madiraju-010553191/)
+
 
 ## Thanks for reading :)
 
