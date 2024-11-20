@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin()
+
 @RestController
 public class TaskController {
 
@@ -34,8 +34,10 @@ public class TaskController {
 
     // Fetch TASK By ID Mapper
     @GetMapping("/tasks/{taskId}")
-    public Optional<Task> getTask(@PathVariable long taskId){
-        return  service.getTask(taskId);
+    public ResponseEntity<Optional<Task>> getTask(@PathVariable long taskId){
+        Optional<Task> findTaskById = service.getTask(taskId);
+        if(findTaskById.isEmpty()) return ResponseEntity.status(HttpStatus.NOT_FOUND).body(findTaskById);
+        return  new ResponseEntity<>(findTaskById,HttpStatus.OK);
     }
 
 
