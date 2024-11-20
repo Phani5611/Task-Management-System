@@ -87,7 +87,7 @@
  - Controller -  Handles all HTTP request from client.
  - Service - All the logic is written here.
  - DAO - Database layer to connect with DB.
- - Model - Contains views / entities of the project.
+ - Model - Contains  entities of the project.
  - TaskValidation - Validation of inputs
  - Exceptions - Contains all custom exceptions.
  - Config - Security & Cors configuration are present in this package.

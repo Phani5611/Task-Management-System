@@ -40,8 +40,7 @@ public class TaskService {
 
 
     // TASK CREATION SERVICE
-    /*This method return type int where,
-     201 - CREATED, 400-MISSING INPUT FIELDS,409 - TASK ALREADY EXSISTS,  500 - UNEXPECTED ERROR*/
+    /* 201 - CREATED, 400-MISSING INPUT FIELDS,409 - TASK ALREADY EXSISTS,  500 - UNEXPECTED ERROR*/
     public ApiResponse createTask(Task createTask) {
 
         String validMessage = validation.taskValidation(createTask);
@@ -56,7 +55,7 @@ public class TaskService {
                 throw  new TaskFoundException("Task - "+ createTask.getTaskId()+"  Already Exsists" );
             }
 
-            // If Task Not Exists in DB - Creates New Task ( One at time as mentioned in the requiremnet )
+            // If Task Not Exists in DB - Creates New Task ( One at time as mentioned in the requirement )
             repo.save(createTask);
             //If everything is good
             return new ApiResponse(201,"Task Created");
