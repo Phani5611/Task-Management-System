@@ -18,7 +18,7 @@
 - [Dependencies](#libraries--dependencies-needed-)
 - [How to run ?](#how-to-run-the-project-)
 - [Steps to test features](#testing-the-features-of-the-project)
-- [Http requests & URL end points](#http-requests--urls)
+- [Http requests & URL end points](#http-requests--urls-end-points)
 - [Http status code's used](#http-status-codes-used)
 - [JSON test cases](#json-data-as-test-cases)
 - [Future scope of improvements](#future-scope-of-improvements)

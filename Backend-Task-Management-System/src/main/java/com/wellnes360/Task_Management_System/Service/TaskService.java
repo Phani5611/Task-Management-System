@@ -40,12 +40,8 @@ public class TaskService {
 
 
     // TASK CREATION SERVICE
-<<<<<<< HEAD
+
     /* 201 - CREATED, 400-MISSING INPUT FIELDS,409 - TASK ALREADY EXSISTS,  500 - UNEXPECTED ERROR*/
-=======
-    /* 
-     201 - CREATED, 400-MISSING INPUT FIELDS,409 - TASK ALREADY EXSISTS,  500 - UNEXPECTED ERROR*/
->>>>>>> e4e7ed6cdf9fc5e7ab0c30969b117d75bd4fd353
     public ApiResponse createTask(Task createTask) {
 
         String validMessage = validation.taskValidation(createTask);
