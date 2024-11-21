@@ -180,14 +180,14 @@
 
 
 ## HTTP Status Code's Used
-| Status Code     | Message | Description |
-|-----------------|---------|-------------|
-| 200    | OK      | Success Operation for Task Deletion/ Updation/ Marked/ Fetch |
-| 201 | CREATED |  Task Created |
-|400| BAD REQUEST|Missing Input Fields|
-|404|NOT FOUND| Task Not Found / Not Exsit|
-| 409 |CONFLICT|Task Already Exsist ( When same task is sent to post mapper )|
-|500|INTERNAL SERVER ERROR |Unexpected error on server side|
+| Status Code     | Message | Description                                                   |
+|-----------------|---------|---------------------------------------------------------------|
+| 200    | OK      | Success Operation for Task Deletion/ Updation/ Marked/ Fetch  |
+| 201 | CREATED | Task Created                                                  |
+|400| BAD REQUEST| Missing Input Fields                                          |
+|404|NOT FOUND| Task Not Found / Not Exsist                                   |
+| 409 |CONFLICT| Task Already Exsist ( When same task is sent to post mapper ) |
+|500|INTERNAL SERVER ERROR | Unexpected error on server side                               |
  
 
 
