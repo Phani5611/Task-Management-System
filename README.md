@@ -134,8 +134,8 @@
 4. Now open postman client and add the login credentials which are mentioned below for `TESTING PURPOSE` only.
 
 ### Login Credentials
-- Username - wellness360
-- Password - wellness360
+- Username - admin
+- Password - admin1234
 
 ### Login Credentials for H2 DB console
 
