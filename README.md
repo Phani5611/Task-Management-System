@@ -36,7 +36,6 @@
 ```plaintext
 
 
-
 ├───.idea
 ├───Backend-Task-Management-System
 │   ├───.idea
@@ -46,40 +45,40 @@
 │   │   ├───main
 │   │   │   ├───java
 │   │   │   │   └───com
-│   │   │   │       └───wellnes360
+│   │   │   │       └───Phani5611
 │   │   │   │           └───Task_Management_System
-│   │   │   │               ├───Config  -                    #Contains Cors and security files.
-│   │   │   │               ├───Controller                   #Contains task controller which handles http requests
-│   │   │   │               ├───DAO                          #Repository layer - DB Connection ( JPA )
-│   │   │   │               ├───Exceptions                   #Custom exceptions like TaskNotFoundException, TaskFoundException, InputFieldException
-│   │   │   │               ├───Model                        #Entities -  Task, Api Response.
-│   │   │   │               ├───Service                      #Business logic - TaskService
-│   │   │   │               └───TaskValidation               #Validating input tasks
+│   │   │   │               ├───Config
+│   │   │   │               ├───Controller
+│   │   │   │               ├───DAO
+│   │   │   │               ├───Exceptions
+│   │   │   │               ├───Model
+│   │   │   │               ├───Service
+│   │   │   │               └───TaskValidation
 │   │   │   └───resources
 │   │   │       ├───static
 │   │   │       └───templates
 │   │   └───test
 │   │       └───java
 │   │           └───com
+│   │               ├───Phani5611
+│   │               │   └───Task_Management_System
 │   │               └───wellnes360
-│   │                   └───Task_Management_System
 │   └───target
-│       ├───classes
-│       │   └───com
-│       │       └───wellnes360
-│       │           └───Task_Management_System
-│       │               ├───Config
-│       │               ├───Controller
-│       │               ├───DAO
-│       │               ├───Exceptions
-│       │               ├───Model
-│       │               ├───Service
-│       │               └───TaskValidation
-│       └───generated-sources
-│           └───annotations
+│       └───classes
+│           └───com
+│               └───Phani5611
+│                   └───Task_Management_System
+│                       ├───Config
+│                       ├───Controller
+│                       ├───DAO
+│                       ├───Exceptions
+│                       ├───Model
+│                       ├───Service
+│                       └───TaskValidation
 └───target
-└───generated-sources
-└───annotations
+    └───generated-sources
+        └───annotations
+
 ```
 ## Project Structure Overview
 

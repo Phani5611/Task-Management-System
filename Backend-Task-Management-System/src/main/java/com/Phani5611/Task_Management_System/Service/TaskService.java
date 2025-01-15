@@ -1,19 +1,17 @@
-package com.wellnes360.Task_Management_System.Service;
+package com.Phani5611.Task_Management_System.Service;
 /* Author - Phani Sai Srinivas Madiraju ( Phani5611 ) */
-import com.wellnes360.Task_Management_System.DAO.TaskRepo;
-import com.wellnes360.Task_Management_System.Exceptions.InputFieldException;
-import com.wellnes360.Task_Management_System.Exceptions.TaskFoundException;
-import com.wellnes360.Task_Management_System.Model.ApiResponse;
-import com.wellnes360.Task_Management_System.Model.Task;
-import com.wellnes360.Task_Management_System.Exceptions.TaskNotFoundException;
-import com.wellnes360.Task_Management_System.TaskValidation.InputFieldsValidation;
+import com.Phani5611.Task_Management_System.DAO.TaskRepo;
+import com.Phani5611.Task_Management_System.Exceptions.InputFieldException;
+import com.Phani5611.Task_Management_System.Exceptions.TaskFoundException;
+import com.Phani5611.Task_Management_System.Model.ApiResponse;
+import com.Phani5611.Task_Management_System.Model.Task;
+import com.Phani5611.Task_Management_System.TaskValidation.InputFieldsValidation;
+import com.Phani5611.Task_Management_System.Exceptions.TaskNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-import static com.wellnes360.Task_Management_System.Model.Task.Status.COMPLETED;
 
 @Service
 public class TaskService {
@@ -140,7 +138,7 @@ public class TaskService {
             Optional<Task> taskOptional = repo.findById(taskId);
             if (taskOptional.isPresent()){
                     Task task = taskOptional.get();
-                    task.setStatus(COMPLETED);
+                    task.setStatus(Task.Status.COMPLETED);
                     repo.save(task);
                     return new ApiResponse(200,"Task Marked"); // Successfully Marked
             }

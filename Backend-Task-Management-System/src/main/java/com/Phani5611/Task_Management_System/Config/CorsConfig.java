@@ -1,4 +1,4 @@
-package com.wellnes360.Task_Management_System.Config;
+package com.Phani5611.Task_Management_System.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

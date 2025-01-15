@@ -1,4 +1,4 @@
-package com.wellnes360.Task_Management_System.Model;
+package com.Phani5611.Task_Management_System.Model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.persistence.Entity;

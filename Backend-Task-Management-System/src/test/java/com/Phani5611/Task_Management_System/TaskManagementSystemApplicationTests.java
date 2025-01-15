@@ -1,4 +1,4 @@
-package com.wellnes360.Task_Management_System;
+package com.Phani5611.Task_Management_System;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

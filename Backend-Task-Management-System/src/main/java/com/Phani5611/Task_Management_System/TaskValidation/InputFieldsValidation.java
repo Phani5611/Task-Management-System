@@ -1,6 +1,6 @@
-package com.wellnes360.Task_Management_System.TaskValidation;
+package com.Phani5611.Task_Management_System.TaskValidation;
 
-import com.wellnes360.Task_Management_System.Model.Task;
+import com.Phani5611.Task_Management_System.Model.Task;
 import org.springframework.stereotype.Component;
 
 @Component

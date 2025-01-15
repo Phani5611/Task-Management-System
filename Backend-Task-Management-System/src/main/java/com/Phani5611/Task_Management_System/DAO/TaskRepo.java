@@ -1,6 +1,6 @@
-package com.wellnes360.Task_Management_System.DAO;
+package com.Phani5611.Task_Management_System.DAO;
 
-import com.wellnes360.Task_Management_System.Model.Task;
+import com.Phani5611.Task_Management_System.Model.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
