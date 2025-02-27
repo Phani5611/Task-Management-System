@@ -1,14 +1,10 @@
 package com.Phani5611.Task_Management_System.Model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 // Model class for custom data type of Task
 @Entity
@@ -21,7 +17,7 @@ public class Task {
     private String description;
     private LocalDate due_date;
     private Status status;
-    private LocalDateTime createdAt;
+    private String createdAt;
     private LocalDateTime updatedAt;
 
     public enum Status{
@@ -34,7 +30,7 @@ public class Task {
 
     }
 
-    public Task(long taskId, String title, String description, LocalDate  due_date, Status status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Task(long taskId, String title, String description, LocalDate  due_date, Status status, String createdAt, LocalDateTime updatedAt) {
         this.taskId = taskId;
         this.title = title;
         this.description = description;
@@ -84,11 +80,11 @@ public class Task {
         this.status = status;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
